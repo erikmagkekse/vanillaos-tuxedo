@@ -30,7 +30,6 @@ stages:
     - apt install build-essential dkms git -y
     - git clone https://github.com/tuxedocomputers/tuxedo-keyboard.git
     - cd tuxedo-keyboard
-    - git checkout release
     - make dkmsinstall
 
 
