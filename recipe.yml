@@ -27,7 +27,7 @@ stages:
     type: shell
     commands:
     - apt update
-    - apt install build-essential dkms -y
+    - apt install build-essential dkms git -y
     - git clone https://github.com/tuxedocomputers/tuxedo-keyboard.git
     - cd tuxedo-keyboard
     - git checkout release
