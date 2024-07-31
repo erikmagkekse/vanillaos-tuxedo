@@ -1,4 +1,4 @@
-name: Custom Vanilla Desktop # Replace this name with your image name
+name: Custom Vanilla Desktop for Tuxedo
 id: custom # Replace this ID with your image ID
 stages:
 - id: build
