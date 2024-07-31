@@ -31,6 +31,7 @@ stages:
     - apt update
     - apt install dkms -y
     - apt install tuxedo-keyboard -y
+    - ls /var/lib/initramfs-tools | sudo xargs -n1 /usr/lib/dkms/dkms_autoinstaller star
 
 
   # Put your custom actions before this comment
