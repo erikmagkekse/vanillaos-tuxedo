@@ -26,12 +26,12 @@ stages:
   - name: example-commands # Sample module demonstrating the Shell module with custom commands
     type: shell
     commands:
-    - echo 'deb https://deb.tuxedocomputers.com/ubuntu noble main' | tee /etc/apt/sources.list.d/tuxedo-computers.list
-    - wget https://deb.tuxedocomputers.com/ubuntu/pool/main/t/tuxedo-archive-keyring/tuxedo-archive-keyring_2022.04.01~tux_all.deb && dpkg -i tuxedo-archive-keyring_2022.04.01~tux_all.deb
     - apt update
-    - apt install dkms -y
-    - apt install tuxedo-keyboard -y
-    - ls /var/lib/initramfs-tools | sudo xargs -n1 /usr/lib/dkms/dkms_autoinstaller start
+    - apt install build-essential dkms -y
+    - git clone https://github.com/tuxedocomputers/tuxedo-keyboard.git
+    - cd tuxedo-keyboard
+    - git checkout release
+    - make dkmsinstall
 
 
   # Put your custom actions before this comment
