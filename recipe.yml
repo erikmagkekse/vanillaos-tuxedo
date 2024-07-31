@@ -1,11 +1,11 @@
 name: Custom Vanilla Desktop for Tuxedo
-id: custom # Replace this ID with your image ID
+id: main
 stages:
 - id: build
   base: ghcr.io/vanilla-os/desktop:main # Optionally, Replace this image URL with a different one i.e. nvidia:main, etc
   singlelayer: false
   labels:
-    maintainer: self-maintained # Optionally, Replace this with your name
+    maintainer: Erik Groh<me@eriks.life>
   args:
     DEBIAN_FRONTEND: noninteractive # Set the image environment as non-interactive
   
@@ -23,16 +23,10 @@ stages:
 
   # Put your custom actions behind this comment
 
-  - name: example-packages # Sample module using the built-in Apt module to install packages
-    type: apt
-    source:
-      packages:
-      - vim
-
   - name: example-commands # Sample module demonstrating the Shell module with custom commands
     type: shell
     commands:
-    - echo 'deb https://deb.tuxedocomputers.com/ubuntu jammy main' | sudo tee /etc/apt/sources.list.d/tuxedo-computers.list
+    - echo 'deb https://deb.tuxedocomputers.com/ubuntu jammy main' | tee /etc/apt/sources.list.d/tuxedo-computers.list
     - apt update
     - apt install tuxedo-control-center
 
